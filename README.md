@@ -1,6 +1,7 @@
 # Shelf
 
-Shelf is the starter SvelteKit application for the [**Self-Testing AI Agents**](https://stevekinney.com/courses/self-testing-ai-agents) course. The repository is intentionally small on day one: a working app shell, a few public and protected routes, app-native email and password authentication, and a tiny Playwright smoke loop that later lessons expand.
+Shelf is the starter SvelteKit application for the [Playwright: Automated Testing & AI Workflows
+](https://stevekinney.com/courses/self-testing-ai-agents) course from [Master.dev](https://master.dev/courses/playwright/). The repository is intentionally small on day one: a working app shell, a few public and protected routes, app-native email and password authentication, and a tiny Playwright smoke loop that later lessons expand.
 
 ## Stack
 
