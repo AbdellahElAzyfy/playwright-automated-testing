@@ -6,6 +6,10 @@ const base = {
 	plugins: [tailwindcss(), sveltekit()],
 	test: {
 		include: ['src/**/*.test.ts']
+	},
+	server: {
+		host: true,
+		port: 5173
 	}
 };
 

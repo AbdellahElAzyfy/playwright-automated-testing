@@ -30,6 +30,7 @@ type LabFixtures = {
 	setupShelfWithBooks: APIRequestContext;
 	authedPage: Page;
 	loggedOutPage: Page;
+	adminRequest: APIRequestContext;
 };
 
 export const test = base.extend<LabFixtures>({
@@ -80,6 +81,14 @@ export const test = base.extend<LabFixtures>({
 		// fights the authenticated default browser state you already set up
 		// for the lab run.
 		await context.close();
+	},
+
+	adminRequest: async ({ playwright }, use) => {
+		const context = await playwright.request.newContext({
+			storageState: 'playwright/.authentication/admin.json'
+		});
+		await use(context);
+		await context.dispose();
 	}
 });
 

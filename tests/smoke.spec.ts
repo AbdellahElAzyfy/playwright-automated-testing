@@ -21,16 +21,14 @@ test('home page introduces Shelf and exposes the public starter navigation', asy
 		'href',
 		'/playground'
 	);
-	await expect(page.getByRole('banner').getByRole('link', { name: 'Sign in' })).toHaveAttribute(
-		'href',
-		'/login'
-	);
 });
 
-test('protected routes redirect unauthenticated readers to login', async ({ page }) => {
-	await page.goto('/search');
-	await expect(page).toHaveURL(/\/login\?returnTo=%2Fsearch$/);
+test('clicking in "Design system" link navigates to the design system', async ({ page }) => {
+	await page.goto('/');
 
-	await page.goto('/shelf');
-	await expect(page).toHaveURL(/\/login\?returnTo=%2Fshelf$/);
+	const primaryNavigation = page.getByRole('navigation', { name: 'Primary' });
+	await primaryNavigation.getByRole('link', { name: 'Design system' }).click();
+
+	await expect(page).toHaveURL('/design-system');
 });
+

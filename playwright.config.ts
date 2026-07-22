@@ -9,5 +9,18 @@ export default defineConfig({
 	},
 	use: {
 		baseURL: 'http://127.0.0.1:4173'
-	}
+	},
+	reporter: [
+		['html', { open: 'never', outputFolder: 'playwright-report/html' }],
+		['json', { outputFile: 'playwright-report/report.json' }],
+		['list']
+	],
+	projects: [
+		{ name: 'setup', testMatch: /.*\.setup\.ts/ },
+		{
+			name: 'chromium',
+			use: { storageState: 'playwright/.authentication/user.json', browserName: 'chromium' },
+			dependencies: ['setup']
+		}
+	]
 });
