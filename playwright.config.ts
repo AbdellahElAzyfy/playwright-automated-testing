@@ -16,11 +16,16 @@ export default defineConfig({
 		['list']
 	],
 	projects: [
-		{ name: 'setup', testMatch: /.*\.setup\.ts/ },
+		{ name: 'setup-db', testMatch: /database\.setup\.ts$/ },
+		{
+			name: 'setup-auth',
+			testMatch: /auth\.setup\.ts$|admin\.setup\.ts$/,
+			dependencies: ['setup-db']
+		},
 		{
 			name: 'chromium',
 			use: { storageState: 'playwright/.authentication/user.json', browserName: 'chromium' },
-			dependencies: ['setup']
+			dependencies: ['setup-auth']
 		}
 	]
 });

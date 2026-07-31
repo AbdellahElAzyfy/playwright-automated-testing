@@ -29,7 +29,8 @@ async function createSession(userId: string, cookies: Cookies): Promise<void> {
 		httpOnly: true,
 		sameSite: 'lax',
 		path: '/',
-		maxAge: SESSION_MAX_AGE
+		maxAge: SESSION_MAX_AGE,
+		secure: false
 	});
 }
 

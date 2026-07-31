@@ -15,5 +15,8 @@ setup('authenticate the seeded admin', async ({ page }) => {
 	await page.getByRole('button', { name: 'Sign in' }).click();
 
 	await expect(page).toHaveURL(/\/shelf/);
+	await expect(page.getByText(admin.name).first()).toBeVisible();
+	await expect(page.getByText(admin.email).first()).toBeVisible();
+
 	await page.context().storageState({ path: adminStorageStatePath });
 });

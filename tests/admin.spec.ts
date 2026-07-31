@@ -1,10 +1,11 @@
 import { expect, test } from './labs/fixtures/fixtures';
 
-test('admin curates, reader sees', async ({ page, adminRequest }) => {
-	await adminRequest.post('/api/admin/featured-books', {
+test('promoted book appears on the reader home page', async ({ page, adminRequest }) => {
+	const response = await adminRequest.post('/api/admin/featured-books', {
 		data: { openLibraryId: 'OL1W' }
 	});
+	expect(response.ok()).toBe(true);
 
 	await page.goto('/shelf');
-	await expect(page.getByRole('heading', { name: "Admin Reader's shelf" })).toBeVisible();
+	await expect(page.getByRole('heading', { name: /Station Eleven/ })).toBeVisible();
 });
