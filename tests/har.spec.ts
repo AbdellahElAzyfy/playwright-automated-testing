@@ -9,4 +9,6 @@ test('search for books', async ({ page }) => {
 	await page.getByLabel('Search').fill('Station Eleven');
 	await page.getByRole('button', { name: 'Search' }).click();
 	await expect(page.getByRole('heading', { name: 'Station Eleven' }).first()).toBeVisible();
+
+	await expect(page).toHaveScreenshot('search-page.png');
 });
