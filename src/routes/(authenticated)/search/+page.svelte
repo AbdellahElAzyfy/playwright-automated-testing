@@ -148,7 +148,7 @@
 		description="Search is backed by the Open Library API. Results can be added to your shelf with one click."
 	/>
 
-	<SurfaceCard title="find a book" description="Search by title, author, or ISBN.">
+	<SurfaceCard title="Find a book" description="Search by title, author, or ISBN.">
 		<form class="grid gap-4 md:grid-cols-[1fr_auto]" method="GET">
 			<Input
 				label="Search by title, author, or ISBN"

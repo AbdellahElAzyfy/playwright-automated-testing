@@ -1,4 +1,5 @@
 pre-commit:
+  parallel: false
   commands:
     playwright-tests:
-      run: npx playwright test {staged_files}
+      run: npx playwright test
